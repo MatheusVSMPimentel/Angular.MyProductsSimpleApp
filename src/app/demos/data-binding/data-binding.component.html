@@ -1,0 +1,52 @@
+<div class="container main-container py-5 my-5">
+    <h3>Interpolation</h3>
+    <p [ngClass]="{
+    'text-secondary' : clickCount<3,
+    'text-success' : clickCount >=3,
+    'text-warning': clickCount>=5,
+    'text-danger': clickCount>=9
+    }">O número de cliques é: {{clickCount}} </p>
+
+    <br>
+    <br>
+    <h3>Property Binding</h3>
+
+    <button class="btn btn-info" [disabled]="clickCount >= 10" (click)="increment()">Click here</button>
+    <br>
+    <br>
+    <img [src]="urlImagem" height="50px" width="50px" alt="">
+    <br>
+    <br>
+    <br>
+
+    <h3>Event Binding</h3>
+    <button class="btn btn-warning" (click)="increment()">Click here</button>
+    <button class="btn btn-danger mx-2" [disabled]="clickCount < 10" (click)="resetCount()">Click here</button>
+
+    <br>
+    <br>
+    <br>
+    <h3>Two-way Binding</h3>
+
+    <h4>Not two way binding</h4>
+    <input type="text" (keyup)="keyUp($event)" placeholder="Digite seu nome">
+    <br>
+    <br>
+    <label> Seu nome é: {{name}}</label>
+    <br>
+    <br>
+    <h4>two way first example</h4>
+    <input type="text" [ngModel]="name" (ngModelChange)="name = $event" placeholder="Digite seu nome">
+    <br>
+    <br>
+    <label> Seu nome é: {{name}}</label>
+
+    <br>
+    <br>
+    <h4>two way best example</h4>
+    <input type="text" [(ngModel)]="name" placeholder="Digite seu nome">
+    <br>
+    <br>
+    <!-- <label class="{{name}}"> Seu nome é: {{name}}</label> -->
+    <label [ngClass]="name"> Seu nome é: {{name}}</label>
+</div>
